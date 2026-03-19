@@ -1,9 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import profileImageUrl from "./assets/me1.jpg";
-import linkedInLogo from "./assets/link.png";
-import githubLogo from "./assets/git.png";
-import xLogo from "./assets/x.png";
-import instagramLogo from "./assets/ig.jpg";
 
 /*
   SAGE & STONE PALETTE
@@ -34,6 +30,7 @@ const EDUCATION = [
     degree: "B.S. Information Technology",
     school: "Cebu Institute of Technology University",
     location: "N. Bacalso Cebu City, PH",
+    note: "3rd Year Student Honor ",
   },
   {
     period: "2019 — 2021",
@@ -41,22 +38,41 @@ const EDUCATION = [
     school: "Cebu Institute of Technology University",
     location: "N. Bacalso Cebu City, PH",
   },
+
+  {
+    period: "2016 — 2020",
+    degree: "Junior High School",
+    school: "Saint Theresa School of Talisay Inc.",
+    location: "Poblacion Talisay City Cebu",
+  },
+  {
+    period: "2011 — 2016",
+    degree: "Elementary School",
+    school: "Holy Rosary School of Pardo",
+    location: "Poblacion Pardo.",
+  }
 ];
 
 const KNOWLEDGE = [
-  { no: "01", icon: "⚡", title: "Frontend Development",    body: "Building pixel-perfect, accessible, performant interfaces with React and modern CSS." },
-  { no: "02", icon: "🎨", title: "UI/UX Thinking",         body: "Translating user needs into clean, intuitive interfaces grounded in design principles." },
-  { no: "03", icon: "🧩", title: "Component Architecture", body: "Structuring scalable systems with clear separation of concerns and reusability." },
-  { no: "04", icon: "🔗", title: "API Integration",        body: "Consuming REST APIs and managing async data flows cleanly in frontend applications." },
-  { no: "05", icon: "🔀", title: "Version Control",        body: "Git workflows — branching, merging, pull requests, and collaborative code review." },
-  { no: "06", icon: "📚", title: "Continuous Learning",    body: "Self-driven learner who actively follows modern frontend trends and best practices." },
+  { no: "01", icon: "🗂️", title: "Project Management",       body: "Coordinating tasks, timelines, and team collaboration for smooth delivery." },
+  { no: "02", icon: "🧱", title: "Full Stack (5-Tier System)", body: "Building systems across layers: UI, business logic, data access, database, and deployment." },
+  { no: "03", icon: "🖥️", title: "Frontend Development",     body: "Creating responsive, user-friendly interfaces with modern web technologies." },
+  { no: "04", icon: "⚙️", title: "Backend Development",      body: "Implementing server-side logic, APIs, and application workflows." },
+  { no: "05", icon: "🗄️", title: "Database",                 body: "Designing schemas and working with databases for reliable data storage and queries." },
+  { no: "06", icon: "📱", title: "Mobile (Kotlin / Android)", body: "Building Android mobile features and screens using Kotlin." },
+  { no: "07", icon: "🔗", title: "API Integration",          body: "Working with REST APIs, requests, and handling responses cleanly in apps." },
+  { no: "08", icon: "🔀", title: "Version Control",          body: "Using Git/GitHub for branching, merging, and collaborative workflows." },
+  { no: "09", icon: "🧩", title: "System Design Thinking",    body: "Breaking problems into modules and designing maintainable architectures." },
+  { no: "10", icon: "🎨", title: "UI/UX Thinking",           body: "Applying design principles to create clear, intuitive, user-focused interfaces." },
+  { no: "11", icon: "🔧", title: "Problem Solving",           body: "Debugging issues and finding practical solutions through analysis and testing." },
+  { no: "12", icon: "📚", title: "Continuous Learning",       body: "Improving skills through projects, research, and adapting to new tools." },
 ];
 
 const SOCIALS = [
-  { code: "in", label: "LinkedIn",  bg: "#0077B5", url: "https://www.linkedin.com/feed/", icon: linkedInLogo },
-  { code: "gh", label: "GitHub",    bg: "#1F4A35", url: "https://github.com/Elaizajane15", icon: githubLogo },
-  { code: "ig", label: "Instagram", bg: "#E1306C", url: "https://www.instagram.com/lyzjynn/", icon: instagramLogo },
-  { code: "tw", label: "X",         bg: "#1DA1F2", url: "https://x.com/lyzjnms", icon: xLogo },
+  { code: "in", label: "LinkedIn",  bg: "#0077B5", url: "https://www.linkedin.com/feed/" },
+  { code: "gh", label: "GitHub",    bg: "#1F4A35", url: "https://github.com/Elaizajane15" },
+  { code: "ig", label: "Instagram", bg: "#E1306C", url: "https://www.instagram.com/lyzjynn/" },
+  { code: "tw", label: "X",         bg: "#1DA1F2", url: "https://x.com/lyzjnms" },
 ];
 
 // ── Hooks ─────────────────────────────────────────────────
@@ -219,7 +235,7 @@ export default function Portfolio() {
             <div className="r6 hero-social">
               {SOCIALS.map(s => (
                 <a key={s.label} className={`social-btn social-${s.code}`} href={s.url} target="_blank" rel="noreferrer" title={s.label} aria-label={s.label}>
-                  <img className="social-icon-img" src={s.icon} alt={s.label} />
+                  {s.code === "tw" ? "X" : s.code}
                 </a>
               ))}
             </div>
@@ -329,7 +345,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
         <div style={{ maxWidth:1100, margin:"0 auto" }}>
           <FadeIn>
             <div style={{ textAlign:"center", marginBottom:64 }}>
-              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>03 / Skills</span>
+              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}> Skills</span>
               <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"clamp(2rem,4vw,3.2rem)", fontWeight:700, color:"#1F4A35", marginTop:8, marginBottom:0 }}>My Skills</h2>
               <div style={{ width:48, height:3, background:"linear-gradient(90deg,#7BBF9E,#D4EDE3)", borderRadius:2, margin:"14px auto 0" }} />
             </div>
@@ -347,7 +363,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
         <div style={{ maxWidth:900, margin:"0 auto" }}>
           <FadeIn>
             <div style={{ textAlign:"center", marginBottom:64 }}>
-              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>04 / Education</span>
+              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>Education</span>
               <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"clamp(2rem,4vw,3.2rem)", fontWeight:700, color:"#1F4A35", marginTop:8, marginBottom:0 }}>Education</h2>
               <div style={{ width:48, height:3, background:"linear-gradient(90deg,#7BBF9E,#D4EDE3)", borderRadius:2, margin:"14px auto 0" }} />
             </div>
@@ -380,7 +396,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
         <div style={{ maxWidth:1100, margin:"0 auto" }}>
           <FadeIn>
             <div style={{ textAlign:"center", marginBottom:16 }}>
-              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>05 / Knowledge</span>
+              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}> Knowledge</span>
               <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"clamp(2rem,4vw,3.2rem)", fontWeight:700, color:"#1F4A35", marginTop:8, marginBottom:0 }}>Knowledge Areas</h2>
               <div style={{ width:48, height:3, background:"linear-gradient(90deg,#7BBF9E,#D4EDE3)", borderRadius:2, margin:"14px auto 0" }} />
             </div>
@@ -411,7 +427,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
         <div style={{ maxWidth:1000, margin:"0 auto" }}>
           <FadeIn>
             <div style={{ textAlign:"center", marginBottom:64 }}>
-              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>06 / Contact</span>
+              <span style={{ fontFamily:"'DM Mono',monospace", fontSize:"0.65rem", color:"#7BBF9E", letterSpacing:3, textTransform:"uppercase" }}>Contact</span>
               <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"clamp(2rem,4vw,3.2rem)", fontWeight:700, color:"#1F4A35", marginTop:8, marginBottom:0 }}>Let's Talk</h2>
               <div style={{ width:48, height:3, background:"linear-gradient(90deg,#7BBF9E,#D4EDE3)", borderRadius:2, margin:"14px auto 0" }} />
               <p style={{ color:"#93b8a6", fontSize:"0.9rem", marginTop:14, fontWeight:300 }}>Open to full-time roles, freelance, and collaborations.</p>
@@ -422,7 +438,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
             {/* Info */}
             <FadeIn delay={0.1} style={{ flex:"0 0 260px" }}>
               <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-                {[["📧","Email","elaizajane@email.com"],["📍","Location","Cebu City, Philippines"],["⏰","Availability","Immediate"]].map(([ic,k,v])=>(
+                {[["📧","Email","elaizajanemoreno3@email.com"],["📍","Location","Talisay City Cebu, Philippines"],["⏰","Availability","Immediate"]].map(([ic,k,v])=>(
                   <div key={k} style={{ display:"flex", gap:14, alignItems:"flex-start", background:"#F0F7F4", borderRadius:14, padding:"16px 18px", border:"1px solid rgba(123,191,158,0.2)" }}>
                     <span style={{ fontSize:"1.2rem" }}>{ic}</span>
                     <div>
@@ -437,7 +453,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
                   <div style={{ display:"flex", justifyContent:"center", gap:10, flexWrap:"wrap" }}>
                     {SOCIALS.map(s=>(
                       <a key={s.label} className="social-btn" href={s.url} target="_blank" rel="noreferrer" style={{ background:s.bg, width:38, height:38 }} title={s.label} aria-label={s.label}>
-                        <img className="social-icon-img social-icon-img-sm" src={s.icon} alt={s.label} />
+                        {s.code === "tw" ? "X" : s.code}
                       </a>
                     ))}
                   </div>
@@ -489,7 +505,7 @@ I am passionate about continuous learning and enjoy exploring new tools, framewo
         <div className="footer-links">
           <a className="footer-link" href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a className="footer-link" href="https://github.com/Elaizajane15" target="_blank" rel="noreferrer">GitHub</a>
-          <a className="footer-link" href="mailto:elaizajane@email.com">Email</a>
+          <a className="footer-link" href="mailto:elaizajanemoreno3@email.com">Email</a>
         </div>
       </footer>
     </div>
