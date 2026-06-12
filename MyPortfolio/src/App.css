@@ -9,6 +9,11 @@
   padding: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -2698,5 +2703,235 @@ textarea.inp {
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+/* ============================================================
+   PAGE LAYOUT (multi-page routing)
+   ============================================================ */
+
+.section {
+  padding: 70px 6% 110px;
+  border-top: none;
+}
+
+/* PAGE HEADER — banner shown at the top of every page except Home */
+.page-header {
+  position: relative;
+  padding: 150px 6% 64px;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--surface) 0%, var(--bg) 55%, #fff 100%);
+}
+
+.page-header-deco-1,
+.page-header-deco-2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-header-deco-1 {
+  top: -20%;
+  right: -8%;
+  width: 380px;
+  height: 380px;
+  background: rgba(123, 191, 158, 0.1);
+}
+
+.page-header-deco-2 {
+  bottom: -25%;
+  left: -10%;
+  width: 320px;
+  height: 320px;
+  background: rgba(31, 74, 53, 0.04);
+}
+
+.page-header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.page-header-icon {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.1;
+}
+
+.page-subtitle {
+  font-size: 0.98rem;
+  color: var(--text-2);
+  line-height: 1.85;
+  max-width: 520px;
+  margin: 16px auto 0;
+  font-weight: 300;
+}
+
+/* SKILLS — filter tabs */
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 52px;
+}
+
+.filter-tab {
+  background: var(--bg);
+  border: 2px solid var(--surface);
+  color: var(--text-2);
+  border-radius: 50px;
+  padding: 8px 22px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  font-family: 'Sora', sans-serif;
+  transition: all 0.25s;
+}
+
+.filter-tab:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.filter-tab.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+/* EDUCATION — vertical timeline */
+.timeline {
+  position: relative;
+  padding-left: 36px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(var(--accent), var(--surface));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -36px;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+  z-index: 1;
+}
+
+/* ABOUT — values / approach grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.value-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(123, 191, 158, 0.2);
+  transition: all 0.3s;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.value-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+.value-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.value-body {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* CONTACT — success state */
+.contact-success {
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.contact-success-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.contact-success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.contact-success-body {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .page-header {
+    padding: 120px 6% 48px;
+  }
+
+  .section {
+    padding: 50px 6% 80px;
+  }
+
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline-dot {
+    left: -28px;
+    width: 14px;
+    height: 14px;
   }
 }
