@@ -731,10 +731,6 @@ section:first-of-type {
   align-items: flex-start;
 }
 
-.edu-period {
-  flex: 0 0 160px;
-}
-
 .edu-period span {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
@@ -745,15 +741,6 @@ section:first-of-type {
 .edu-info {
   flex: 1;
   min-width: 220px;
-}
-
-.edu-school {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  color: #444;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-  transition: color 0.3s;
 }
 
 .edu-desc {
@@ -775,13 +762,6 @@ section:first-of-type {
   line-height: 1.85;
   margin-bottom: 64px;
   font-weight: 300;
-}
-
-.knowledge-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1px;
-  background: #141414;
 }
 
 .know-card {
@@ -1761,7 +1741,7 @@ body {
 .about-flex {
   display: flex;
   gap: 72px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .shrink-0 {
