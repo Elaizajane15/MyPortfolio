@@ -1,25 +1,23 @@
 import { useState } from "react";
 import FadeIn from "../components/FadeIn";
-import PageHeader from "../components/PageHeader";
+import SectionHeader from "../components/SectionHeader";
 import SkillBar from "../components/SkillBar";
 import { SKILLS, SKILL_CATEGORIES } from "../data/portfolioData";
 
 export default function Skills() {
-  const [active, setActive] = useState("All");
-  const filtered = active === "All" ? SKILLS : SKILLS.filter(s => s.cat === active);
+  const [active, setActive] = useState(SKILL_CATEGORIES[0]);
+  const filtered = SKILLS.filter(s => s.cat === active);
 
   return (
     <>
-      <PageHeader
-        eyebrow="03 / Skills"
-        title="My Skills"
-        subtitle="Tools and technologies I use to bring ideas to life — filter by category to explore."
-        icon="🛠️"
-      />
-
-      <section className="section section-white">
+      <section id="skills" className="section section-white">
         <div className="section-inner">
-          <FadeIn>
+          <SectionHeader
+            eyebrow="02 / Skills"
+            title="My Skills"
+            subtitle="Tools and technologies I use to bring ideas to life — filter by category to explore."
+          />
+          <FadeIn variant="zoom">
             <div className="filter-tabs">
               {SKILL_CATEGORIES.map(cat => (
                 <button
@@ -35,7 +33,7 @@ export default function Skills() {
           </FadeIn>
 
           <div className="skills-grid">
-            {filtered.map((s, i) => <SkillBar key={s.name} {...s} delay={i * 0.06} />)}
+            {filtered.map((s, i) => <SkillBar key={s.name} {...s} delay={Math.min(i, 8) * 0.06} />)}
           </div>
         </div>
       </section>

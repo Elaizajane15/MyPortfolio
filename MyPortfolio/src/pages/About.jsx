@@ -1,60 +1,61 @@
-import profileImageUrl from "../assets/me1.jpg";
+import profileImageUrl from "../assets/me2.jpg";
 import FadeIn from "../components/FadeIn";
-import PageHeader from "../components/PageHeader";
+import SectionHeader from "../components/SectionHeader";
+import CountUp from "../components/CountUp";
 
 const INFO = [
   ["Full Name", "Elaiza Jane R. Moreno"],
-  ["Location", "Cebu City, Philippines"],
-  ["Focus", "Frontend Development, Backend Development, Backend Learner, Problem Solver"],
-  ["Status", "Open to Opportunities"],
+  ["Location", "Talisay City, Cebu, Philippines"],
+  ["Education", "BS Information Technology, Cebu Institute of Technology (2023 – 2027)"],
+  ["Roles", "Project Manager · Team Leader"],
   ["Languages", "Filipino & English"],
-  ["Education", "B.S. Information Technology"],
+  ["Status", "Open to Opportunities"],
 ];
 
 const STATS = [
-  ["3+", "Projects Built", "🚀"],
-  ["2+", "Years Learning", "📚"],
-  ["8+", "Technologies", "⚡"],
+  ["3+", "Projects Built"],
+  ["4+", "Years Learning"],
+  ["3", "AWS Badges"],
 ];
 
 const VALUES = [
-  { icon: "🔍", title: "Curious by Nature", body: "Always exploring new tools, frameworks, and design trends to level up my craft." },
-  { icon: "🎯", title: "Detail-Driven", body: "I sweat the small stuff — spacing, motion, and micro-interactions that make UI feel alive." },
-  { icon: "🤝", title: "Collaborative", body: "I enjoy working with teams, sharing ideas, and learning from every project I join." },
+  { title: "Team Player", body: "I work well with people, whether independently or as part of a team, and I value good teamwork and collaboration." },
+  { title: "Natural Leader", body: "As a project manager and team leader, I keep tasks organized, timelines on track, and everyone moving together." },
+  { title: "Detail-Oriented", body: "Responsible and careful with quality, I make sure the work I deliver is clean, tested, and done right." },
+  { title: "Always Learning", body: "I'm willing to learn and be trained, I handle pressure well, and I keep improving with every challenge." },
 ];
 
 export default function About() {
   return (
     <>
-      <PageHeader
-        eyebrow="02 / About"
-        title="About Me"
-        subtitle="A closer look at who I am, what I value, and where I'm headed."
-      />
-
-      <section className="section section-white">
+      <section id="about" className="section section-white">
         <div className="section-inner">
+          <SectionHeader
+            eyebrow="01 / About"
+            title="About Me"
+            subtitle="A closer look at who I am, what I value, and where I'm headed."
+          />
           <div className="about-flex">
-            <FadeIn delay={0.1} className="shrink-0">
+            <FadeIn delay={0.1} variant="left" className="shrink-0">
               <div className="about-card">
                 <img src={profileImageUrl} alt="Profile photo" className="about-photo-img" />
                 <div className="about-card-fade" />
                 <div className="about-chip">
-                  <span>FRONTEND</span>
+                  <span>BSIT STUDENT</span>
                 </div>
               </div>
             </FadeIn>
 
             <div className="about-text">
-              <FadeIn delay={0.15}>
+              <FadeIn delay={0.15} variant="right">
                 <p className="about-lead">
-                  Hello! I'm <strong className="text-strong">Elaiza Jane R. Moreno</strong>, a frontend developer based in Cebu, Philippines. I love crafting{" "}
-                  <span className="text-highlight">beautiful, responsive web experiences</span> that are both functional and delightful.
+                  Hello! I'm <strong className="text-strong">Elaiza Jane R. Moreno</strong>, an Information Technology student at Cebu Institute of Technology from Talisay City, Cebu. I'm a{" "}
+                  <span className="text-highlight">motivated, adaptable and creative</span> developer who loves turning ideas into working apps.
                 </p>
                 <p className="about-sublead">
-                  An Information Technology student and aspiring frontend developer based in Cebu, Philippines. I specialize in building responsive and user-friendly web applications using modern technologies such as React, HTML, and CSS.
+                  I bring strong thinking, problem-solving and organizational skills to every project. I'm comfortable working on my own or with a team, and I'm always willing to learn new skills and take on new challenges.
                   <br /><br />
-                  I am passionate about continuous learning and enjoy exploring new tools, frameworks, and design trends. I strive to create efficient, functional, and visually appealing digital experiences while continuously improving my technical and problem-solving skills.
+                  I build with Java, JavaScript, PHP, Kotlin and C, using React.js, Spring Boot, MySQL and PostgreSQL, and I've led teams as a project manager. I'm detail-oriented, responsible and good with time, committed to delivering quality work while continuously improving my personal and professional abilities.
                 </p>
               </FadeIn>
 
@@ -71,10 +72,9 @@ export default function About() {
 
               <FadeIn delay={0.35}>
                 <div className="stats-row">
-                  {STATS.map(([n, l, ic]) => (
+                  {STATS.map(([n, l]) => (
                     <div key={l} className="stat-card">
-                      <div className="stat-icon">{ic}</div>
-                      <div className="stat-number">{n}</div>
+                      <div className="stat-number"><CountUp value={n} /></div>
                       <div className="stat-label">{l}</div>
                     </div>
                   ))}
@@ -97,9 +97,9 @@ export default function About() {
           </FadeIn>
           <div className="values-grid">
             {VALUES.map((v, i) => (
-              <FadeIn key={v.title} delay={i * 0.1}>
+              <FadeIn key={v.title} delay={i * 0.15} variant="flip">
                 <div className="value-card">
-                  <div className="value-icon">{v.icon}</div>
+                  <div className="value-icon" aria-hidden="true" />
                   <h3 className="value-title">{v.title}</h3>
                   <p className="value-body">{v.body}</p>
                 </div>

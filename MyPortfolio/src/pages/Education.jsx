@@ -1,22 +1,24 @@
+import { useRef } from "react";
 import FadeIn from "../components/FadeIn";
-import PageHeader from "../components/PageHeader";
+import { useInView } from "../hooks/useInView";
+import SectionHeader from "../components/SectionHeader";
 import { EDUCATION } from "../data/portfolioData";
 
 export default function Education() {
+  const lineRef = useRef(null);
+  const drawn = useInView(lineRef);
   return (
     <>
-      <PageHeader
-        eyebrow="04 / Education"
-        title="My Journey"
-        subtitle="A timeline of the schools and milestones that shaped my path into tech."
-        icon="🎓"
-      />
-
-      <section className="section section-white">
+      <section id="education" className="section section-white">
         <div className="section-inner section-inner-narrow">
-          <div className="timeline">
+          <SectionHeader
+            eyebrow="04 / Education"
+            title="My Journey"
+            subtitle="A timeline of the schools and milestones that shaped my path into tech."
+          />
+          <div ref={lineRef} className={`timeline${drawn ? " drawn" : ""}`}>
             {EDUCATION.map((e, i) => (
-              <FadeIn key={i} delay={i * 0.15}>
+              <FadeIn key={i} delay={i * 0.15} variant="left">
                 <div className="timeline-item">
                   <div className="timeline-dot" />
                   <div className="edu-card">
@@ -27,7 +29,7 @@ export default function Education() {
                       </div>
                       <div className="edu-meta">
                         <span className="edu-period">{e.period}</span>
-                        <span className="edu-location">📍 {e.location}</span>
+                        <span className="edu-location">{e.location}</span>
                       </div>
                     </div>
                     {e.note && <p className="edu-note">{e.note}</p>}

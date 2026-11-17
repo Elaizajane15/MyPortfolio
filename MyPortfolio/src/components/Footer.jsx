@@ -13,7 +13,8 @@ export default function Footer() {
       <div className="footer-links">
         <a className="footer-link" href="https://www.linkedin.com/feed/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a className="footer-link" href="https://github.com/Elaizajane15" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="footer-link" href="mailto:elaizajanemoreno3@email.com">Email</a>
+        <a className="footer-link" href="https://wa.me/639369024396" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a className="footer-link" href="mailto:elaizajanemoreno3@gmail.com">Email</a>
       </div>
     </footer>
   );

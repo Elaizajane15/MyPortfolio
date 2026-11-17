@@ -1,3 +1,7 @@
+import badgeCloudArchitecting from "../assets/badge-cloud-architecting.png";
+import badgeCloudFoundations from "../assets/badge-cloud-foundations.png";
+import badgeGenAiFoundations from "../assets/badge-genai-foundations.png";
+
 /*
   SAGE & STONE PALETTE
   #F0F7F4  mint cream    — background
@@ -8,26 +12,63 @@
 */
 
 export const NAV = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Skills", path: "/skills" },
-  { label: "Education", path: "/education" },
-  { label: "Knowledge", path: "/knowledge" },
-  { label: "Contact", path: "/contact" },
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Skills", id: "skills" },
+  { label: "Knowledge", id: "knowledge" },
+  { label: "Education", id: "education" },
+  { label: "Certifications", id: "certifications" },
+  { label: "Projects", id: "projects" },
+  { label: "Contact", id: "contact" },
 ];
+
+/* pct is optional: skills without it render as a plain row (no bar). */
+const PROG = "Programming & Development";
+const FRAME = "Frameworks & Technologies";
+const PM = "Project Management";
+const TECHSK = "Technical & Computer Skills";
+const SOFT = "Soft Skills";
 
 export const SKILLS = [
-  { name: "React.js",           cat: "Frontend",    pct: 80 },
-  { name: "JavaScript ES6+",    cat: "Language",    pct: 82 },
-  { name: "HTML5 & CSS3",       cat: "Markup",      pct: 92 },
-  { name: "Tailwind CSS",       cat: "Styling",     pct: 85 },
-  { name: "Figma / UI Design",  cat: "Design",      pct: 74 },
-  { name: "Git & GitHub",       cat: "Tooling",     pct: 78 },
-  { name: "REST APIs",          cat: "Integration", pct: 70 },
-  { name: "Responsive Design",  cat: "Practice",    pct: 88 },
+  { name: "Java",               cat: PROG,  pct: 90 },
+  { name: "JavaScript",         cat: PROG,  pct: 82 },
+  { name: "PHP",                cat: PROG,  pct: 80 },
+  { name: "Kotlin",             cat: PROG,  pct: 85 },
+  { name: "HTML",               cat: PROG,  pct: 92 },
+  { name: "CSS",                cat: PROG,  pct: 92 },
+
+  { name: "React.js",           cat: FRAME, pct: 80 },
+  { name: "Spring Boot",        cat: FRAME, pct: 95 },
+  { name: "MySQL",              cat: FRAME, pct: 95 },
+  { name: "PostgreSQL",         cat: FRAME, pct: 95 },
+  { name: "Git & GitHub",       cat: FRAME, pct: 78 },
+  { name: "Tailwind CSS",       cat: FRAME, pct: 85 },
+  { name: "REST APIs",          cat: FRAME, pct: 70 },
+  { name: "Figma / UI Design",  cat: FRAME, pct: 74 },
+  { name: "Responsive Design",  cat: FRAME, pct: 88 },
+
+  { name: "Project Manager",    cat: PM,    pct: 95 },
+  { name: "Team Leader",        cat: PM,    pct: 95 },
+
+  { name: "Microsoft Word",                 cat: TECHSK },
+  { name: "Microsoft Excel",                cat: TECHSK },
+  { name: "Microsoft PowerPoint",           cat: TECHSK },
+  { name: "Basic Computer Troubleshooting", cat: TECHSK },
+  { name: "File and Document Management",   cat: TECHSK },
+
+  { name: "Teamwork & Collaboration",             cat: SOFT },
+  { name: "Kindness",                             cat: SOFT },
+  { name: "Quality Assurance",                    cat: SOFT },
+  { name: "Multitasking",                         cat: SOFT },
+  { name: "Willingness to Learn and Be Trained",  cat: SOFT },
+  { name: "Works Well with People",               cat: SOFT },
+  { name: "Ability to Work Under Pressure",       cat: SOFT },
+  { name: "Good Time Management",                 cat: SOFT },
 ];
 
-export const SKILL_CATEGORIES = ["All", ...new Set(SKILLS.map(s => s.cat))];
+export const TECH_SKILL_CATS = [PROG, FRAME];
+
+export const SKILL_CATEGORIES = [...new Set(SKILLS.map(s => s.cat))];
 
 export const EDUCATION = [
   {
@@ -58,18 +99,17 @@ export const EDUCATION = [
 ];
 
 export const KNOWLEDGE = [
-  { no: "01", icon: "🗂️", title: "Project Management",       body: "Coordinating tasks, timelines, and team collaboration for smooth delivery." },
-  { no: "02", icon: "🧱", title: "Full Stack (5-Tier System)", body: "Building systems across layers: UI, business logic, data access, database, and deployment." },
-  { no: "03", icon: "🖥️", title: "Frontend Development",     body: "Creating responsive, user-friendly interfaces with modern web technologies." },
-  { no: "04", icon: "⚙️", title: "Backend Development",      body: "Implementing server-side logic, APIs, and application workflows." },
-  { no: "05", icon: "🗄️", title: "Database",                 body: "Designing schemas and working with databases for reliable data storage and queries." },
-  { no: "06", icon: "📱", title: "Mobile (Kotlin / Android)", body: "Building Android mobile features and screens using Kotlin." },
-  { no: "07", icon: "🔗", title: "API Integration",          body: "Working with REST APIs, requests, and handling responses cleanly in apps." },
-  { no: "08", icon: "🔀", title: "Version Control",          body: "Using Git/GitHub for branching, merging, and collaborative workflows." },
-  { no: "09", icon: "🧩", title: "System Design Thinking",    body: "Breaking problems into modules and designing maintainable architectures." },
-  { no: "10", icon: "🎨", title: "UI/UX Thinking",           body: "Applying design principles to create clear, intuitive, user-focused interfaces." },
-  { no: "11", icon: "🔧", title: "Problem Solving",           body: "Debugging issues and finding practical solutions through analysis and testing." },
-  { no: "12", icon: "📚", title: "Continuous Learning",       body: "Improving skills through projects, research, and adapting to new tools." },
+  { no: "01", title: "Project Management",       body: "Coordinating tasks, timelines, and team collaboration for smooth delivery." },
+  { no: "02", title: "Full Stack (5-Tier System)", body: "Building systems across layers: UI, business logic, data access, database, and deployment." },
+  { no: "03", title: "Frontend Development",     body: "Creating responsive, user-friendly interfaces with modern web technologies." },
+  { no: "04", title: "Backend Development",      body: "Implementing server-side logic, APIs, and application workflows." },
+  { no: "05", title: "Database",                 body: "Designing schemas and working with databases for reliable data storage and queries." },
+  { no: "06", title: "Mobile (Kotlin / Android)", body: "Building Android mobile features and screens using Kotlin." },
+  { no: "07", title: "API Integration",          body: "Working with REST APIs, requests, and handling responses cleanly in apps." },
+  { no: "08", title: "Version Control",          body: "Using Git/GitHub for branching, merging, and collaborative workflows." },
+  { no: "09", title: "System Design Thinking",    body: "Breaking problems into modules and designing maintainable architectures." },
+  { no: "10", title: "UI/UX Thinking",           body: "Applying design principles to create clear, intuitive, user-focused interfaces." },
+  { no: "11", title: "Continuous Learning",       body: "Improving skills through projects, research, and adapting to new tools." },
 ];
 
 export const SOCIALS = [
@@ -77,4 +117,53 @@ export const SOCIALS = [
   { code: "gh", label: "GitHub",    bg: "#1F4A35", url: "https://github.com/Elaizajane15" },
   { code: "ig", label: "Instagram", bg: "#E1306C", url: "https://www.instagram.com/lyzjynn/" },
   { code: "tw", label: "X",         bg: "#1DA1F2", url: "https://x.com/lyzjnms" },
+  { code: "wa", label: "WhatsApp",  bg: "#25D366", url: "https://wa.me/639369024396" },
+];
+
+export const PROJECTS = [
+  {
+    title: "WizardFrac",
+    type: "Capstone Project",
+    desc: "A magic-themed interactive web app built as our capstone project. Best experienced in landscape mode.",
+    tags: ["Capstone", "Web App", "Vercel"],
+    url: "https://capstone-wizard-frac.vercel.app/",
+  },
+  {
+    title: "Daily Thoughts",
+    type: "IT342 Group Project",
+    desc: "A web app for writing down and keeping your daily thoughts, with user accounts and sign-in.",
+    tags: ["IT342", "Group Project", "Auth"],
+    url: "https://it-342-d-thoughts-g4-moreno.vercel.app/",
+  },
+  {
+    title: "B-T Glass Fabrication",
+    type: "Business Website",
+    desc: "A website for B-T Glass Fabrication Services that showcases their work and helps customers get in touch.",
+    tags: ["Business Site", "Responsive", "Vercel"],
+    url: "https://b-tglassfabricationservices.vercel.app/",
+  },
+];
+
+export const CERTIFICATIONS = [
+  {
+    title: "AWS Academy Graduate – Cloud Architecting",
+    issuer: "Amazon Web Services Training and Certification",
+    date: "October 2026",
+    img: badgeCloudArchitecting,
+    url: "https://www.credly.com/badges/3d7961ea-dfd9-4feb-b894-b5b12fa59b1e/public_url",
+  },
+  {
+    title: "AWS Academy Graduate – Cloud Foundations",
+    issuer: "Amazon Web Services Training and Certification",
+    date: "October 2026",
+    img: badgeCloudFoundations,
+    url: "https://www.credly.com/badges/c689e96c-b637-48d0-8871-a1b33d82f5df/public_url",
+  },
+  {
+    title: "AWS Academy Graduate – Generative AI Foundations",
+    issuer: "Amazon Web Services Training and Certification",
+    date: "October 2026",
+    img: badgeGenAiFoundations,
+    url: "https://www.credly.com/badges/b09a5b24-f3b2-4c86-ad5a-fd866fc933fa/public_url",
+  },
 ];

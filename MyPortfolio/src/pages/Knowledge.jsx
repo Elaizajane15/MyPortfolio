@@ -1,29 +1,26 @@
 import FadeIn from "../components/FadeIn";
-import PageHeader from "../components/PageHeader";
+import SectionHeader from "../components/SectionHeader";
 import { KNOWLEDGE } from "../data/portfolioData";
 
 export default function Knowledge() {
   return (
     <>
-      <PageHeader
-        eyebrow="05 / Knowledge"
-        title="Knowledge Areas"
-        subtitle="Core areas built through self-study, projects, and academic training."
-        icon="🧠"
-      />
-
-      <section className="section section-mint">
+      <section id="knowledge" className="section section-mint">
         <div className="section-inner">
+          <SectionHeader
+            eyebrow="03 / Knowledge"
+            title="Knowledge Areas"
+            subtitle="Core areas built through self-study, projects, and academic training."
+          />
           <div className="knowledge-grid">
             {KNOWLEDGE.map((k, i) => (
-              <FadeIn key={k.no} delay={i * 0.08}>
+              <FadeIn key={k.no} delay={(i % 2) * 0.12} variant={i % 2 ? "right" : "left"}>
                 <div className="kcard">
                   <div className="kcard-head">
-                    <div className="kicon">{k.icon}</div>
-                    <div>
+                    <div className="kicon">
                       <span className="kno">{k.no}</span>
-                      <h3 className="ktitle">{k.title}</h3>
                     </div>
+                    <h3 className="ktitle">{k.title}</h3>
                   </div>
                   <p className="kbody">{k.body}</p>
                 </div>
