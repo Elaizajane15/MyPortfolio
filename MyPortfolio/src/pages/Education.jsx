@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import FadeIn from "../components/FadeIn";
+import FadeIn from "../components/ui/FadeIn";
 import { useInView } from "../hooks/useInView";
-import SectionHeader from "../components/SectionHeader";
+import SectionHeader from "../components/ui/SectionHeader";
 import { EDUCATION } from "../data/portfolioData";
 
 export default function Education() {

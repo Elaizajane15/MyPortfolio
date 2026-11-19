@@ -1,7 +1,7 @@
 import { useState } from "react";
-import FadeIn from "../components/FadeIn";
-import SectionHeader from "../components/SectionHeader";
-import SkillBar from "../components/SkillBar";
+import FadeIn from "../components/ui/FadeIn";
+import SectionHeader from "../components/ui/SectionHeader";
+import SkillBar from "../components/ui/SkillBar";
 import { SKILLS, SKILL_CATEGORIES } from "../data/portfolioData";
 
 export default function Skills() {

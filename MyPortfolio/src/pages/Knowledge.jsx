@@ -1,5 +1,5 @@
-import FadeIn from "../components/FadeIn";
-import SectionHeader from "../components/SectionHeader";
+import FadeIn from "../components/ui/FadeIn";
+import SectionHeader from "../components/ui/SectionHeader";
 import { KNOWLEDGE } from "../data/portfolioData";
 
 export default function Knowledge() {
@@ -14,15 +14,13 @@ export default function Knowledge() {
           />
           <div className="knowledge-grid">
             {KNOWLEDGE.map((k, i) => (
-              <FadeIn key={k.no} delay={(i % 2) * 0.12} variant={i % 2 ? "right" : "left"}>
+              <FadeIn key={k.no} delay={(i % 2) * 0.08}>
                 <div className="kcard">
-                  <div className="kcard-head">
-                    <div className="kicon">
-                      <span className="kno">{k.no}</span>
-                    </div>
+                  <span className="kno">{k.no}</span>
+                  <div className="kcontent">
                     <h3 className="ktitle">{k.title}</h3>
+                    <p className="kbody">{k.body}</p>
                   </div>
-                  <p className="kbody">{k.body}</p>
                 </div>
               </FadeIn>
             ))}

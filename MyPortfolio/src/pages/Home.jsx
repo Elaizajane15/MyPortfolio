@@ -1,20 +1,15 @@
-import memojiSmileUrl from "../assets/memoji-smile.png";
-import memojiWinkUrl from "../assets/memoji-wink.png";
-import memojiLaptopUrl from "../assets/memoji-laptop-sq.png";
+import memojiSmileUrl from "../assets/images/memoji-smile.png";
+import memojiWinkUrl from "../assets/images/memoji-wink.png";
+import memojiLaptopUrl from "../assets/images/memoji-laptop-sq.png";
 import { useTyping } from "../hooks/useTyping";
 import { useScramble } from "../hooks/useScramble";
-import Orb from "../components/Orb";
 import { SOCIALS, SKILLS, KNOWLEDGE } from "../data/portfolioData";
 import { TECH } from "../data/techIcons";
+import { lazy, Suspense } from "react";
 
-const TILE_GRADS = [
-  ["#ff2d9a", "#ff8a2b"], ["#4a63ff", "#7be4ff"], ["#34d399", "#fde047"],
-  ["#8a3ffc", "#ff2d9a"], ["#ff8a2b", "#fde047"], ["#22d3ee", "#8a3ffc"],
-];
-const TILE_ORBS = [
-  ["#fff3b0", "#ffb800", "#a15c00"], ["#c8f3ff", "#2fa8ff", "#0a3d8a"],
-  ["#ffd0f0", "#ff4fb8", "#7a0a58"], ["#d8ffd0", "#3ed16a", "#0b5a2a"],
-];
+// The 3D scene is loaded separately so the page shows up first.
+const HeroScene = lazy(() => import("../components/three/HeroScene"));
+
 const MARQUEE_WORDS = [...SKILLS.map(s => s.name), ...KNOWLEDGE.slice(0, 5).map(k => k.title)];
 
 export default function Home() {
@@ -25,6 +20,10 @@ export default function Home() {
   return (
     <>
       <section id="home" className="hero">
+        <Suspense fallback={null}>
+          <HeroScene />
+        </Suspense>
+
         <h1 className="hero-title chrome" aria-label={TITLE} onPointerEnter={replay}>
           <span aria-hidden="true">{title}</span>
         </h1>
@@ -44,12 +43,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* floating 3D shapes */}
-        <Orb a="#ff8a2b" b="#ff2d9a" c="#5b1a6e" size={74} s={-30} style={{ left: "10%", top: "44%" }} />
-        <Orb a="#7be4ff" b="#4a63ff" c="#1a1f6e" size={62} shape="sq" s={40} style={{ right: "11%", top: "38%" }} />
-        <Orb a="#c77dff" c="#5a189a" size={54} shape="ring" s={-22} style={{ right: "24%", top: "16%" }} />
-        <Orb a="#d8ffd0" b="#3ed16a" c="#0b5a2a" size={34} s={26} style={{ left: "24%", top: "20%" }} />
 
         <div className="hero-bottom">
           <div className="hero-tag r2">
@@ -88,12 +81,9 @@ export default function Home() {
         <div className="marq-row rev">
           {/* tech stack tiles: listed twice so the loop is seamless */}
           {[...TECH, ...TECH].map((t, i) => {
-            const g = TILE_GRADS[i % 6];
-            const o = TILE_ORBS[i % 4];
             return (
-              <div key={i} className="marq-tile" style={{ background: `linear-gradient(135deg, ${g[0]}, ${g[1]})` }}>
+              <div key={i} className="marq-tile">
                 <div className="tile-ball">
-                  <Orb a={o[0]} b={o[1]} c={o[2]} size={70} float={false} className="tile-orb" />
                   <svg className="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d={t.path} />
                   </svg>

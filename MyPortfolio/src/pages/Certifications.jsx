@@ -1,6 +1,7 @@
-import FadeIn from "../components/FadeIn";
-import SectionHeader from "../components/SectionHeader";
-import Orb from "../components/Orb";
+import FadeIn from "../components/ui/FadeIn";
+import SectionHeader from "../components/ui/SectionHeader";
+import Orb from "../components/ui/Orb";
+import TiltCard from "../components/ui/TiltCard";
 import { CERTIFICATIONS } from "../data/portfolioData";
 
 export default function Certifications() {
@@ -22,15 +23,17 @@ export default function Certifications() {
             const linkProps = c.url ? { href: c.url, target: "_blank", rel: "noreferrer" } : {};
             return (
               <FadeIn key={c.title} variant="spin" delay={i * 0.15}>
-                <Tag className="cert-card" {...linkProps}>
-                  <div className="cert-badge-wrap">
-                    <img className="cert-badge" src={c.img} alt={`${c.title} badge`} loading="lazy" />
-                  </div>
-                  <p className="cert-date">{c.date}</p>
-                  <h3 className="cert-title">{c.title}</h3>
-                  <p className="cert-issuer">{c.issuer}</p>
-                  {c.url && <span className="cert-link">View Badge ↗</span>}
-                </Tag>
+                <TiltCard max={14}>
+                  <Tag className="cert-card" {...linkProps}>
+                    <div className="cert-badge-wrap tilt-pop">
+                      <img className="cert-badge" src={c.img} alt={`${c.title} badge`} loading="lazy" />
+                    </div>
+                    <p className="cert-date">{c.date}</p>
+                    <h3 className="cert-title tilt-pop-sm">{c.title}</h3>
+                    <p className="cert-issuer">{c.issuer}</p>
+                    {c.url && <span className="cert-link tilt-pop-sm">View Badge ↗</span>}
+                  </Tag>
+                </TiltCard>
               </FadeIn>
             );
           })}

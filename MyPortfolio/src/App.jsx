@@ -1,6 +1,7 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ScrollBand from "./components/ScrollBand";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import ScrollBand from "./components/ui/ScrollBand";
+import NetworkBackground from "./components/layout/NetworkBackground";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
@@ -19,6 +20,7 @@ function App() {
   useScrollVars();
   return (
     <div className="portfolio">
+      <NetworkBackground />
       <div className="scroll-progress" aria-hidden="true" />
       <Header />
       <main>

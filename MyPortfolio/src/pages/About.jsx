@@ -1,7 +1,8 @@
-import profileImageUrl from "../assets/me2.jpg";
-import FadeIn from "../components/FadeIn";
-import SectionHeader from "../components/SectionHeader";
-import CountUp from "../components/CountUp";
+import profileImageUrl from "../assets/images/me2.jpg";
+import FadeIn from "../components/ui/FadeIn";
+import SectionHeader from "../components/ui/SectionHeader";
+import CountUp from "../components/ui/CountUp";
+import TiltCard from "../components/ui/TiltCard";
 
 const INFO = [
   ["Full Name", "Elaiza Jane R. Moreno"],
@@ -17,6 +18,38 @@ const STATS = [
   ["4+", "Years Learning"],
   ["3", "AWS Badges"],
 ];
+
+/* Line icons for the "My Approach" cards (24×24, drawn with the stroke color). */
+const ICONS = {
+  "Team Player": (
+    <>
+      <circle cx="9" cy="7" r="4" />
+      <path d="M2 21v-1a7 7 0 0 1 14 0v1" />
+      <circle cx="17.5" cy="8.5" r="2.5" />
+      <path d="M18 14a5 5 0 0 1 4 5v2" />
+    </>
+  ),
+  "Natural Leader": (
+    <>
+      <path d="M5 22V3" />
+      <path d="M5 4h13l-3 4.5L18 13H5" />
+    </>
+  ),
+  "Detail-Oriented": (
+    <>
+      <circle cx="10.5" cy="10.5" r="7" />
+      <path d="M21 21l-5.5-5.5" />
+      <path d="M7.5 10.5l2 2 3.5-4" />
+    </>
+  ),
+  "Always Learning": (
+    <>
+      <path d="M12 21v-9" />
+      <path d="M12 12C12 7.5 8.5 5 4 5c0 4.5 3.5 7 8 7z" />
+      <path d="M12 15c0-3.5 3-6 8-6 0 3.5-3 6-8 6z" />
+    </>
+  ),
+};
 
 const VALUES = [
   { title: "Team Player", body: "I work well with people, whether independently or as part of a team, and I value good teamwork and collaboration." },
@@ -98,11 +131,17 @@ export default function About() {
           <div className="values-grid">
             {VALUES.map((v, i) => (
               <FadeIn key={v.title} delay={i * 0.15} variant="flip">
+                <TiltCard>
                 <div className="value-card">
-                  <div className="value-icon" aria-hidden="true" />
-                  <h3 className="value-title">{v.title}</h3>
+                  <div className="value-icon tilt-pop" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      {ICONS[v.title]}
+                    </svg>
+                  </div>
+                  <h3 className="value-title tilt-pop-sm">{v.title}</h3>
                   <p className="value-body">{v.body}</p>
                 </div>
+                </TiltCard>
               </FadeIn>
             ))}
           </div>

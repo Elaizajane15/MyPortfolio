@@ -1,5 +1,5 @@
-import FadeIn from "../components/FadeIn";
-import SectionHeader from "../components/SectionHeader";
+import FadeIn from "../components/ui/FadeIn";
+import SectionHeader from "../components/ui/SectionHeader";
 
 const CONTACT_INFO = [
   ["Location", "Talisay City Cebu, Philippines"],

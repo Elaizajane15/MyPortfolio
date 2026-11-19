@@ -1,6 +1,6 @@
-import badgeCloudArchitecting from "../assets/badge-cloud-architecting.png";
-import badgeCloudFoundations from "../assets/badge-cloud-foundations.png";
-import badgeGenAiFoundations from "../assets/badge-genai-foundations.png";
+import badgeCloudArchitecting from "../assets/badges/badge-cloud-architecting.png";
+import badgeCloudFoundations from "../assets/badges/badge-cloud-foundations.png";
+import badgeGenAiFoundations from "../assets/badges/badge-genai-foundations.png";
 
 /*
   SAGE & STONE PALETTE

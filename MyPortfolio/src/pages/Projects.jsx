@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import SectionHeader from "../components/SectionHeader";
-import Orb from "../components/Orb";
+import SectionHeader from "../components/ui/SectionHeader";
+import Orb from "../components/ui/Orb";
 import { useInView } from "../hooks/useInView";
 import { PROJECTS } from "../data/portfolioData";
 

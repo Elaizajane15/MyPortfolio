@@ -46,7 +46,7 @@ textarea:focus-visible {
 ::selection { background: rgba(255, 45, 154, 0.4); color: #fff; }
 
 .portfolio {
-  background: var(--ink);
+  background: #05040b;
   color: #fff;
   font-family: var(--body);
   line-height: 1.55;
@@ -292,7 +292,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   padding: 110px 5vw 48px;
   overflow: hidden;
-  background: radial-gradient(55% 45% at 50% 55%, rgba(138, 63, 252, 0.2), transparent 70%), #000;
+  background: radial-gradient(55% 45% at 50% 55%, rgba(138, 63, 252, 0.2), transparent 70%);
 }
 
 .hero-title {
@@ -581,7 +581,7 @@ h1, h2, h3, h4 {
   width: clamp(120px, 17vw, 210px);
   aspect-ratio: 1.15;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -592,30 +592,21 @@ h1, h2, h3, h4 {
 
 .marq-tile:hover { transform: translateY(-6px) rotate(-2deg); }
 
-/* glossy ball with the tech logo sitting on it */
+/* just the tech logo, no ball behind it */
 .tile-ball {
   position: relative;
-  width: 44%;
+  width: 40%;
   aspect-ratio: 1;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .marq-tile:hover .tile-ball { transform: rotate(-12deg) scale(1.1); }
 
-.marq-tile .tile-orb {
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  transform: none;
-}
-
 .tile-icon {
-  position: absolute;
-  inset: 26%;
-  width: 48%;
-  height: 48%;
+  width: 100%;
+  height: 100%;
   fill: #fff;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 0 14px rgba(180, 107, 255, 0.55));
 }
 
 .tile-label {
@@ -663,7 +654,7 @@ h1, h2, h3, h4 {
 .section { position: relative; overflow: clip; padding: 110px 5vw 120px; }
 
 .section-white {
-  background: radial-gradient(50% 320px at 50% 0, rgba(138, 63, 252, 0.16), transparent 75%), var(--ink);
+  background: radial-gradient(50% 320px at 50% 0, rgba(138, 63, 252, 0.16), transparent 75%);
   color: #fff;
 }
 
@@ -841,17 +832,24 @@ h1, h2, h3, h4 {
 }
 
 .value-icon {
-  width: 46px;
-  height: 46px;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #b8a1ff, #7c4dff 62%, #2a0a8a);
-  box-shadow: inset -6px -8px 14px rgba(0,0,0,.3), 0 10px 18px rgba(0,0,0,.2);
-  transition: transform .4s;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 2px solid #000;
+  color: #000;
+  background: transparent;
+  transition: transform 0.4s, color 0.3s, border-color 0.3s, background 0.3s;
 }
-.value-card:nth-child(2) .value-icon { border-radius: 30%; background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #ffd0f0, #ff4fb8 62%, #7a0a58); }
-.value-card:nth-child(3) .value-icon { background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #ffd56b, #ff9a1f 62%, #a14a00); }
-.value-card:hover .value-icon { transform: rotate(-12deg) scale(1.12); }
+.value-icon svg { width: 26px; height: 26px; }
+.value-card:hover .value-icon {
+  transform: rotate(-8deg) scale(1.08);
+  color: #fff;
+  border-color: transparent;
+  background: var(--grad);
+}
 .value-title { font-size: 1.1rem; letter-spacing: 0.02em; margin-bottom: 12px; text-transform: uppercase; }
 .value-body { font-size: 0.9rem; font-weight: 600; line-height: 1.7; color: #444; }
 
@@ -1027,52 +1025,51 @@ h1, h2, h3, h4 {
 /* ============================================================
    KNOWLEDGE — numbered services list (on paper)
    ============================================================ */
+/* One column list: big plain number on the left, title + text on the right */
 .knowledge-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 0 56px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .kcard {
-  padding: 26px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  transition: padding-left 0.3s;
-}
-
-.kcard:hover { padding-left: 12px; }
-
-.kcard-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-
-.kicon {
-  flex: none;
-  width: 60px;
-  height: 60px;
-  border-radius: 30%;
   display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  background:
-    radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255, 255, 255, 0) 18%),
-    radial-gradient(circle at 35% 30%, #d9dcff, #8d93c7 62%, #3b3f7a);
-  box-shadow: inset -6px -8px 14px rgba(0, 0, 0, 0.3), 0 10px 18px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s;
+  grid-template-columns: 150px 1fr;
+  align-items: start;
+  gap: 32px;
+  padding: 30px 0;
 }
-
-.knowledge-grid > :nth-child(4n + 2) .kicon { background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #ffd0f0, #ff4fb8 62%, #7a0a58); }
-.knowledge-grid > :nth-child(4n + 3) .kicon { background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #ffd56b, #ff9a1f 62%, #a14a00); }
-.knowledge-grid > :nth-child(4n + 4) .kicon { background: radial-gradient(circle at 30% 26%, #fff 0 6%, rgba(255,255,255,0) 18%), radial-gradient(circle at 35% 30%, #c8f3ff, #2fa8ff 62%, #0a3d8a); }
-
-.kcard:hover .kicon { transform: rotate(-10deg) scale(1.1); }
 
 .kno {
   font-family: var(--disp);
-  font-size: 1.25rem;
-  line-height: 1;
-  color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  line-height: 0.9;
+  color: #000;
+  transition: transform 0.3s, color 0.3s;
 }
-.ktitle { font-family: var(--body); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
-.kbody { font-size: 0.9rem; font-weight: 600; line-height: 1.7; color: #444; }
+
+.kcard:hover .kno { transform: translateX(8px); color: var(--violet); }
+
+.kcontent {
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ktitle {
+  margin-bottom: 10px;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.kbody { font-size: 0.92rem; font-weight: 500; line-height: 1.7; color: #666; max-width: 560px; }
+
+@media (max-width: 600px) {
+  .kcard { grid-template-columns: 80px 1fr; gap: 18px; padding: 22px 0; }
+}
 
 /* ============================================================
    CONTACT (on paper)
@@ -1587,4 +1584,146 @@ a.cert-card:hover {
   .skill { opacity: 1; transform: none !important; filter: none; }
   .timeline::before { transform: none; }
   .hero-title, .hero-bottom { transform: none; opacity: 1; }
+}
+
+/* ============================================================
+   ANIMATED NETWORK BACKGROUND
+   ============================================================ */
+.net-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #120a2a 0%, #07051a 45%, #030208 100%);
+}
+
+.net-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.net-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.net-nebula-a {
+  width: 55vw; height: 55vw;
+  left: -12vw; top: -14vw;
+  background: radial-gradient(circle, rgba(138, 63, 252, 0.55), transparent 65%);
+  animation: nebula-a 26s ease-in-out infinite alternate;
+}
+
+.net-nebula-b {
+  width: 50vw; height: 50vw;
+  right: -14vw; top: 30vh;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.35), transparent 65%);
+  animation: nebula-b 32s ease-in-out infinite alternate;
+}
+
+.net-nebula-c {
+  width: 40vw; height: 40vw;
+  left: 25vw; bottom: -18vw;
+  background: radial-gradient(circle, rgba(255, 45, 154, 0.3), transparent 65%);
+  animation: nebula-c 38s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-a { to { transform: translate(14vw, 10vh) scale(1.15); } }
+@keyframes nebula-b { to { transform: translate(-12vw, -14vh) scale(0.9); } }
+@keyframes nebula-c { to { transform: translate(-10vw, -8vh) scale(1.2); } }
+
+/* Page content sits above the background */
+main, .footer { position: relative; z-index: 1; }
+.band, .footer { background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .net-nebula { animation: none; }
+}
+
+/* ============================================================
+   ROUNDED SECTION EDGES
+   Light sections become rounded panels over the dark background.
+   ============================================================ */
+.section-mint {
+  border-radius: 48px;
+  z-index: 1;
+}
+
+/* As a light section scrolls in, it starts a bit smaller and grows to full size.
+   Browsers without scroll-driven animations simply show it at full size. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-mint {
+      animation: panel-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+}
+
+@keyframes panel-in {
+  from { scale: 0.92; border-radius: 80px; }
+  to   { scale: 1;    border-radius: 48px; }
+}
+
+@media (max-width: 700px) {
+  .section-mint { border-radius: 28px; }
+  @keyframes panel-in {
+    from { scale: 0.95; border-radius: 44px; }
+    to   { scale: 1;    border-radius: 28px; }
+  }
+}
+
+/* ============================================================
+   3D HERO SCENE (three.js)
+   ============================================================ */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: hero-scene-in 1.4s ease-out both;
+}
+
+@keyframes hero-scene-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   3D TILT CARDS (TiltCard.jsx)
+   ============================================================ */
+.tilt {
+  position: relative;
+  height: 100%;
+  border-radius: 32px;
+  will-change: transform;
+}
+
+/* Keep the 3D space alive inside the card so layers can float */
+.tilt > .value-card,
+.tilt > .cert-card { height: 100%; transform-style: preserve-3d; }
+
+/* The card itself no longer jumps up on hover; the tilt replaces that */
+.tilt > .value-card:hover,
+.tilt > a.cert-card:hover { transform: none; }
+
+/* Layers that float above the card */
+.tilt .tilt-pop    { transform: translateZ(60px); }
+.tilt .tilt-pop-sm { transform: translateZ(30px); }
+.tilt .value-card:hover .value-icon.tilt-pop { transform: translateZ(60px) rotate(-8deg) scale(1.08); }
+
+/* Light glare that follows the cursor */
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt .tilt-pop,
+  .tilt .tilt-pop-sm { transform: none; }
 }

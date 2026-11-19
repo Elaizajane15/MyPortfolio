@@ -1,4 +1,4 @@
-/*
+  /*
   Glossy 3D orb used for decoration.
   a/b/c = highlight / mid / shadow colors
   shape = "" (sphere) | "sq" (rounded cube) | "ring" (torus)
