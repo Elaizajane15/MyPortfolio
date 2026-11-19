@@ -1,4 +1,6 @@
-import profileImageUrl from "../assets/me2.jpg";
+import memojiSmileUrl from "../assets/memoji-smile.png";
+import memojiWinkUrl from "../assets/memoji-wink.png";
+import memojiLaptopUrl from "../assets/memoji-laptop-sq.png";
 import { useTyping } from "../hooks/useTyping";
 import { useScramble } from "../hooks/useScramble";
 import Orb from "../components/Orb";
@@ -28,19 +30,12 @@ export default function Home() {
         </h1>
 
         <div className="hero-stage">
-          <div className="hero-sphere">
-            <div className="hero-photo">
-              <img src={profileImageUrl} alt="Elaiza Jane R. Moreno" />
-            </div>
+          <div className="hero-memoji">
+            <img src={memojiSmileUrl} alt="Elaiza Jane R. Moreno" className="memoji-smile" />
+            <img src={memojiWinkUrl} alt="" aria-hidden="true" className="memoji-wink" />
+            <img src={memojiLaptopUrl} alt="" aria-hidden="true" className="memoji-laptop" />
           </div>
 
-          <div className="avatar-badge avatar-badge-stack">
-            <span className="avatar-badge-icon" aria-hidden="true" />
-            <div>
-              <p className="avatar-badge-k">Stack</p>
-              <p className="avatar-badge-v">React.js</p>
-            </div>
-          </div>
           <div className="avatar-badge avatar-badge-status">
             <span className="avatar-badge-icon is-green" aria-hidden="true" />
             <div>
