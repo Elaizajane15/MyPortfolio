@@ -79,19 +79,15 @@ export default function Home() {
           ))}
         </div>
         <div className="marq-row rev">
-          {/* tech stack tiles: listed twice so the loop is seamless */}
-          {[...TECH, ...TECH].map((t, i) => {
-            return (
-              <div key={i} className="marq-tile">
-                <div className="tile-ball">
-                  <svg className="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d={t.path} />
-                  </svg>
-                </div>
-                <span className="tile-label">{t.name}</span>
-              </div>
-            );
-          })}
+          {/* tech stack chips: listed twice so the loop is seamless */}
+          {[...TECH, ...TECH].map((t, i) => (
+            <div key={i} className="tech-chip" style={{ "--c": t.color }}>
+              <svg className="tech-chip-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d={t.path} />
+              </svg>
+              <span className="tech-chip-label">{t.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </>
