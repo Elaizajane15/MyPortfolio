@@ -147,7 +147,7 @@ export const PROJECTS = [
     type: "Rental Listing Website",
     desc: "A listing site for WRL Staycation, a pool-view condo in Mactan, Cebu, that helps guests view the place and book a stay.",
     tags: ["Staycation", "Responsive", "Vercel"],
-    url: "https://wrl-staycation-airbnb-wrl-staycatio.vercel.app/",
+    url: "https://wrl-staycation.vercel.app/",
   },
 ];
 
